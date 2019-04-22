@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>ARCS-HACKBATTLE'19</title>
+  <meta name="designer" content="Alberto Hartzet">
+  <meta name="programer" content="Alberto Hartzet">
+  <meta name="author" content="Alberto Hartzet">
+  <meta name="description" content="One page navigation with pure CSS">
+  <meta property="og:url" content="https://codepen.io/hrtzt/details/NPZKRN">
+  <meta property="og:image" content="https://pbs.twimg.com/media/CCNJN_XUMAAJSzU.jpg:large">
+  <!-- Latest compiled and minified CSS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+    crossorigin="anonymous">
+
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+    crossorigin="anonymous">
+
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css'>
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" />
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+
+
+  <style>
+    /* NOTE: The styles were added inline because Prefixfree needs access to your styles and they must be inlined if they are on local disk! */
+    html,
+    body,
+    .page {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -webkit-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -moz-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      -o-transition: all .6s cubic-bezier(.5, .2, .2, 1.1);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    * {
+      font-family: 'open sans', 'lato', 'helvetica', sans-serif;
+    }
+
+    .page {
+      position: absolute;
+    }
+
+    #p1 {
+      left: 0;
+    }
+
+    #p2,
+    #p3,
+    #p4,
+    #p5 {
+      left: 200%;
+    }
+
+    #p1 {
+      background: darkslateblue;
+    }
+
+    #p2 {
+      background: tomato;
+    }
+
+    #p3 {
+      background: gold;
+    }
+
+    #p4 {
+      background: deeppink;
+    }
+
+    #p5 {
+      background: rebeccapurple;
+    }
+
+    #t2:target #p2,
+    #t3:target #p3,
+    #t4:target #p4,
+    #t5:target #p5 {
+      transform: translateX(-190%);
+      -webkit-transform: translateX(-190%);
+      -moz-transform: translateX(-190%);
+      -o-transform: translateX(-190%);
+      transition-delay: .4s !important;
+    }
+
+    #t2:target #p1,
+    #t3:target #p1,
+    #t4:target #p1,
+    #t5:target #p1 {
+      background: black;
+    }
+
+    #t2:target #p1 .icon,
+    #t3:target #p1 .icon,
+    #t4:target #p1 .icon,
+    #t5:target #p1 .icon {
+      -webkit-filter: blur(3px);
+    }
+
+    .icon {
+      color: #fff;
+      font-size: 32px;
+      display: block;
+    }
+
+    ul .icon:hover {
+      opacity: 0.5;
+    }
+
+    .page .icon .title {
+      line-height: 2;
+    }
+
+    #t2:target ul .icon,
+    #t3:target ul .icon,
+    #t4:target ul .icon,
+    #t5:target ul .icon {
+      transform: scale(.6);
+      -webkit-transform: scale(.6);
+      -moz-transform: scale(.6);
+      -o-transform: scale(.6);
+      transition-delay: .25s;
+    }
+
+    #t2:target #dos,
+    #t3:target #tres,
+    #t4:target #cuatro,
+    #t4:target #cinco {
+      transform: scale(1.2) !important;
+      -webkit-transform: scale(1.2) !important;
+      -moz-transform: scale(1.2) !important;
+      -o-transform: scale(1.2) !important;
+    }
+
+    ul {
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      margin: auto;
+      height: 280px;
+      width: 10%;
+      padding: 0;
+      text-align: center;
+    }
+
+    #menu .icon {
+      margin: 30px 0;
+      transition: all .5s ease-out !important;
+      -webkit-transition: all .5s ease-out;
+      -moz-transition: all .5s ease-out;
+      -o-transition: all .5s ease-out;
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    .title,
+    .hint {
+      display: block;
+    }
+
+    .title {
+      font-size: 38px;
+    }
+
+    .hint {
+      font-size: 13px;
+    }
+
+    #p4 .hint {
+      display: inherit !important;
+    }
+
+    .hint a {
+      color: yellow;
+      transition: all 250ms ease-out;
+      -webkit-transition: all 250ms ease-out;
+      -moz-transition: all 250ms ease-out;
+      -o-transition: all 250ms ease-out;
+    }
+
+    .hint a:hover {
+      color: #FFF;
+    }
+
+    .line-trough {
+      text-decoration: line-through;
+    }
+
+    .page .icon {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 10%;
+      left: 0;
+      width: 270px;
+      height: 170px;
+      margin: auto;
+      text-align: center;
+      font-size: 80px;
+      line-height: 1.3;
+      transform: translateX(360%);
+      -webkit-transform: translateX(360%);
+      -moz-transform: translateX(360%);
+      -o-transform: translateX(360%);
+      transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -webkit-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -moz-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+      -o-transition: all .5s cubic-bezier(.25, 1, .5, 1.25);
+    }
+
+    .page#p1 .icon {
+      height: 220px;
+    }
+
+    .page#p1 .icon {
+      transform: translateX(10%) !important;
+    }
+
+    #t2:target .page#p2 .icon,
+    #t3:target .page#p3 .icon,
+    #t4:target .page#p4 .icon,
+    #t5:target .page#p5 .icon {
+      transform: translateX(0) !important;
+      -webkit-transform: translateX(0) !important;
+      -moz-transform: translateX(0) !important;
+      -o-transform: translateX(0) !important;
+      transition-delay: 1s;
+    }
+
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial;
+    }
+
+    .header {
+      text-align: center;
+      padding: 32px;
+    }
+
+    .row {
+      display: -ms-flexbox;
+      /* IE10 */
+      display: flex;
+      -ms-flex-wrap: wrap;
+      /* IE10 */
+      flex-wrap: wrap;
+      padding: 0 4px;
+    }
+
+    /* Create four equal columns that sits next to each other */
+    .column {
+      -ms-flex: 25%;
+      /* IE10 */
+      flex: 25%;
+      max-width: 25%;
+      padding: 0 4px;
+    }
+
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+    }
+
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        -ms-flex: 50%;
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        -ms-flex: 100%;
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+  </style>
+  <style type="text/css">
+    div.image {
+      max-width: 256px;
+      max-height: 256px;
+      background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnIGlkPSJjYWxlbmRhcl8xXyI+CgkJPHBhdGggZD0iTTI5LjMzNCwzSDI1VjFjMC0wLjU1My0wLjQ0Ny0xLTEtMXMtMSwwLjQ0Ny0xLDF2MmgtNlYxYzAtMC41NTMtMC40NDgtMS0xLTFzLTEsMC40NDctMSwxdjJIOVYxICAgIGMwLTAuNTUzLTAuNDQ4LTEtMS0xUzcsMC40NDcsNywxdjJIMi42NjdDMS4xOTQsMywwLDQuMTkzLDAsNS42NjZ2MjMuNjY3QzAsMzAuODA2LDEuMTk0LDMyLDIuNjY3LDMyaDI2LjY2NyAgICBDMzAuODA3LDMyLDMyLDMwLjgwNiwzMiwyOS4zMzNWNS42NjZDMzIsNC4xOTMsMzAuODA3LDMsMjkuMzM0LDN6IE0zMCwyOS4zMzNDMzAsMjkuNzAxLDI5LjcwMSwzMCwyOS4zMzQsMzBIMi42NjcgICAgQzIuMjk5LDMwLDIsMjkuNzAxLDIsMjkuMzMzVjUuNjY2QzIsNS4yOTksMi4yOTksNSwyLjY2Nyw1SDd2MmMwLDAuNTUzLDAuNDQ4LDEsMSwxczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDgsMSwxLDEgICAgczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDcsMSwxLDFzMS0wLjQ0NywxLTFWNWg0LjMzNEMyOS43MDEsNSwzMCw1LjI5OSwzMCw1LjY2NlYyOS4zMzN6IiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNlNmJjMTUiLz4KCQk8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iI2U2YmMxNSIvPgoJCTxyZWN0IHg9IjciIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==)
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+</head>
+
+<body>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <img src="ARCS.png" class="arcs_ph" height="80px" alt="">
+    <a href="#" class="one">About</a>
+    <a href="#" class="one">Services</a>
+    <a href="#" class="one">Clients</a>
+    <a href="#" class="one">Contact</a>
+  </div>
+  <div class="bar">
+    <span class="new_nav" style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+  </div>
+
+  <div class="ct" id="t1">
+    <div class="ct" id="t2">
+      <div class="ct" id="t3">
+        <div class="ct" id="t4">
+          <div class="ct" id="t5">
+            <ul id="menu" class="ph  better">
+              <a href="#t1">
+                <li class="icon fa fa-bolt" id="uno"></li>
+              </a>
+              <a href="#t2">
+                <li class="icon fa fa-keyboard-o" id="dos"></li>
+              </a>
+              <a href="#t3">
+                <li class="icon fa fa-rocket" id="tres"></li>
+              </a>
+              <a href="#t4">
+                <li class="icon fa fa-dribbble" id="cuatro"></li>
+              </a>
+              <a href="#t5">
+                <li class="icon fa fa-plus-circle" id="cinco"></li>
+              </a>
+            </ul>
+
+
+            <div class="page" id="p1">
+              <section class="x1">
+                <div class="IEEEcs">
+                  <img src="ARCS.png" class="arcs" height="80px" alt="">
+                </div>
+                <div class="IEEEcs">
+                  <img src="logos/IEEE-CS_LogoTM-orange-white-text-1.png" alt="IEEECSlogo" id="ieeecslogo" />
+                </div>
+                <div>
+                  <img src="HackBattle logo.png" alt="Logo" id="mainLogo" />
+                </div>
+
+                <!-- CALENDAR -->
+                <div class="cal">
+                  <img class="cal_img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnIGlkPSJjYWxlbmRhcl8xXyI+CgkJPHBhdGggZD0iTTI5LjMzNCwzSDI1VjFjMC0wLjU1My0wLjQ0Ny0xLTEtMXMtMSwwLjQ0Ny0xLDF2MmgtNlYxYzAtMC41NTMtMC40NDgtMS0xLTFzLTEsMC40NDctMSwxdjJIOVYxICAgIGMwLTAuNTUzLTAuNDQ4LTEtMS0xUzcsMC40NDcsNywxdjJIMi42NjdDMS4xOTQsMywwLDQuMTkzLDAsNS42NjZ2MjMuNjY3QzAsMzAuODA2LDEuMTk0LDMyLDIuNjY3LDMyaDI2LjY2NyAgICBDMzAuODA3LDMyLDMyLDMwLjgwNiwzMiwyOS4zMzNWNS42NjZDMzIsNC4xOTMsMzAuODA3LDMsMjkuMzM0LDN6IE0zMCwyOS4zMzNDMzAsMjkuNzAxLDI5LjcwMSwzMCwyOS4zMzQsMzBIMi42NjcgICAgQzIuMjk5LDMwLDIsMjkuNzAxLDIsMjkuMzMzVjUuNjY2QzIsNS4yOTksMi4yOTksNSwyLjY2Nyw1SDd2MmMwLDAuNTUzLDAuNDQ4LDEsMSwxczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDgsMSwxLDEgICAgczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDcsMSwxLDFzMS0wLjQ0NywxLTFWNWg0LjMzNEMyOS43MDEsNSwzMCw1LjI5OSwzMCw1LjY2NlYyOS4zMzN6IiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNlNmJjMTUiLz4KCQk8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iI2U2YmMxNSIvPgoJCTxyZWN0IHg9IjciIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                  <span class="cal_content"> 27 <sup>th</sup> - 29 <sup>th</sup> March, 2019</span>
+                </div>
+
+                <div class="cal_phone">
+                  <img class="cal_phone_img" src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDMyIDMyIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAzMiAzMjsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIxNnB4IiBoZWlnaHQ9IjE2cHgiPgo8Zz4KCTxnIGlkPSJjYWxlbmRhcl8xXyI+CgkJPHBhdGggZD0iTTI5LjMzNCwzSDI1VjFjMC0wLjU1My0wLjQ0Ny0xLTEtMXMtMSwwLjQ0Ny0xLDF2MmgtNlYxYzAtMC41NTMtMC40NDgtMS0xLTFzLTEsMC40NDctMSwxdjJIOVYxICAgIGMwLTAuNTUzLTAuNDQ4LTEtMS0xUzcsMC40NDcsNywxdjJIMi42NjdDMS4xOTQsMywwLDQuMTkzLDAsNS42NjZ2MjMuNjY3QzAsMzAuODA2LDEuMTk0LDMyLDIuNjY3LDMyaDI2LjY2NyAgICBDMzAuODA3LDMyLDMyLDMwLjgwNiwzMiwyOS4zMzNWNS42NjZDMzIsNC4xOTMsMzAuODA3LDMsMjkuMzM0LDN6IE0zMCwyOS4zMzNDMzAsMjkuNzAxLDI5LjcwMSwzMCwyOS4zMzQsMzBIMi42NjcgICAgQzIuMjk5LDMwLDIsMjkuNzAxLDIsMjkuMzMzVjUuNjY2QzIsNS4yOTksMi4yOTksNSwyLjY2Nyw1SDd2MmMwLDAuNTUzLDAuNDQ4LDEsMSwxczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDgsMSwxLDEgICAgczEtMC40NDcsMS0xVjVoNnYyYzAsMC41NTMsMC40NDcsMSwxLDFzMS0wLjQ0NywxLTFWNWg0LjMzNEMyOS43MDEsNSwzMCw1LjI5OSwzMCw1LjY2NlYyOS4zMzN6IiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iNyIgeT0iMTIiIHdpZHRoPSI0IiBoZWlnaHQ9IjMiIGZpbGw9IiNlNmJjMTUiLz4KCQk8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjQiIGhlaWdodD0iMyIgZmlsbD0iI2U2YmMxNSIvPgoJCTxyZWN0IHg9IjciIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMTQiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjIyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjE3IiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+CgkJPHJlY3QgeD0iMjEiIHk9IjEyIiB3aWR0aD0iNCIgaGVpZ2h0PSIzIiBmaWxsPSIjZTZiYzE1Ii8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                  <span class="cal_phone_content"> 27 <sup>th</sup> - 29 <sup>th</sup> March, 2019</span>
+                </div>
+
+                <!-- BUTTON -->
+
+                <div class="row but">
+                  <div class="col-md-3 col-sm-3 col-xs-6 "> <a href="#" class="btn btn-sm animated-button thar-three why">Register</a>
+                  </div>
+                </div>
+
+              </section>
+            </div>
+
+
+            <div class="page" id="p2">
+              <section>
+                <div class="about">ABOUT</div>
+                <div class="content_about">
+                  We at IEEE-CS, strive to bring to you the better.
+                  And for ARCS, we left no stone unturned.
+                  We bring to you one of the most popular segment of ARCS: HackBattle'19.
+                  The 36-hour legacy Hackathon will be hosted in VIT, Vellore. It will present before you, a diverse
+                  array of domains for you and your team to choose from. Submit your innovative idea and you could be
+                  one of the Top 40 teams which earn their ticket to compete in the final Hack, where you shape your
+                  ideas into reality.
+                  The Top Three teams will be awarded with amazing prizes. All participants who make it to the Final
+                  Round will be getting a Certificate of Participation.
+                  And every participant is entitled to be served with enticing food to keep you going all through the
+                  hack, and to recieve eye-catching goodies to take back!
+                  Looking forward to see you there!
+                </div>
+              </section>
+            </div>
+
+
+            <div class="page" id="p3">
+              <section>
+                <div class="sponsors">SPONSORS</div>
+              </section>
+            </div>
+
+
+
+            <div class="page" id="p4">
+              <section>
+                <div class="previous">PREVIOUS SPONSORS</div>
+                <div class="pc">
+                  <div class="row">
+                    <div class="col-sm-4"><img class="sponsorLogo float-center" src="logos/1024px-DigitalOcean_logo.svg.png"
+                        width=90%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo float-center" src="logos/HE_logo.png" width="80%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" src="logos/PNGPIX-COM-Cognizant-Logo-PNG-Transparent.png"
+                        width="70%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo paytm" src="logos/Paytm_logo.png" width="70%" alt="" /></div>
+                    <div class="col-sm-4"><img id="slack" class="sponsorLogo" src="logos/Slack CMYK.png" width="70%"
+                        alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" src="logos/github-logo.png" width="70%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo sica float-center" src="logos/logo_stupros.jpg" width="80%"
+                        alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" src="logos/scope logo.png" width="80%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" id="wolf" src="logos/wolfram-language-text-logo-copy-1.png"
+                        width="60%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" id="sica" src="logos/sicagennew.png" width="90%" alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo float-center indian" src="logos/indian oil.png" width="40%"
+                        alt="" /></div>
+                    <div class="col-sm-4"><img class="sponsorLogo" id="soul" src="logos/souled-logo.jpg" width="45%"
+                        alt="" /></div>
+                  </div>
+                </div>
+                <div class="mob">
+                  <div class="row">
+                    <div class="col-xs-6"><img class="sponsorLogo again float-center" src="logos/1024px-DigitalOcean_logo.svg.png"
+                        width=100%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again float-center" src="logos/HE_logo.png" width="85%"
+                        alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " src="logos/PNGPIX-COM-Cognizant-Logo-PNG-Transparent.png"
+                        width="100%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo paytm again " src="logos/Paytm_logo.png" width="70%"
+                        alt="" /></div>
+                    <div class="col-xs-6"><img id="slack" class="sponsorLogo again " src="logos/Slack CMYK.png" width="70%"
+                        alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " src="logos/github-logo.png" width="70%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo sica float-center again " src="logos/logo_stupros.jpg"
+                        width="80%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " src="logos/scope logo.png" width="80%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " id="wolf" src="logos/wolfram-language-text-logo-copy-1.png"
+                        width="60%" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " id="sica" src="logos/sicagennew.png" width="90%"
+                        alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo float-center indian again " src="logos/indian oil.png"
+                        width="55  %" alt="" /></div>
+                    <div class="col-xs-6"><img class="sponsorLogo again " id="soul" src="logos/souled-logo.jpg" width="45%"
+                        alt="" /></div>
+                  </div>
+                </div>
+              </section>
+            </div>
+
+
+            <div class="page" id="p5">
+              <section class="icon fa fa-plus-circle">
+                <span class="title">More</span>
+                <p class="hint">
+                  <span>You love one page & CSS only stuff? </span><br />
+                  <a href="https://codepen.io/hrtzt/details/pgXMYb/" target="_blank">check this pen "Pure CSS One
+                    page
+                    vertical navigation"</a>
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
